@@ -6,7 +6,7 @@
   <name>ros2_robotiqgripper</name>
   <version>1.0.0</version>
   
-  <description>IFRA-Cranfield (Cranfield University, UK). Package: ROS2 RobotiQ Gripper Driver (TCP-IP Socket Connection)</description>
+  <description>IFRA-Cranfield (Cranfield University, UK). Package: ROS2 Robotiq Gripper Driver (TCP-IP Socket Connection)</description>
   <maintainer email="Mikel.Bueno-Viso@cranfield.ac.uk">mikel</maintainer>
   
   <license>(c) Centre for Robotics and Assembly, Cranfield University</license>

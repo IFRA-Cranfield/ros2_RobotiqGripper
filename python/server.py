@@ -5,7 +5,7 @@
 # IMPORT -> Required libraries:
 import rclpy
 from rclpy.node import Node
-from ros2_robotiqgripper.srv import RobotiQGripper
+from ros2_robotiqgripper.srv import RobotiqGripper
 import socket, time, re
 
 # Create NODE:
@@ -14,8 +14,8 @@ class serviceServer(Node):
     def __init__(self):
 
         # Initialise ROS 2 Service Server:
-        super().__init__('ros2_RobotiQGripper_ServiceServer')
-        self.SERVICE = self.create_service(RobotiQGripper, "RobotiQ_Gripper", self.ExecuteService)
+        super().__init__('ros2_RobotiqGripper_ServiceServer')
+        self.SERVICE = self.create_service(RobotiqGripper, "Robotiq_Gripper", self.ExecuteService)
 
     def ExecuteService(self, request, response):
 
@@ -55,7 +55,7 @@ class serviceServer(Node):
             response.success = True
             response.value = GripperPos_STR
             response.average = AVERAGE
-            response.message = "CLOSE command successfully sent to RobotiQ gripper. After execution, the gripper is -> " + str(AVERAGE) + "% CLOSED."
+            response.message = "CLOSE command successfully sent to Robotiq gripper. After execution, the gripper is -> " + str(AVERAGE) + "% CLOSED."
             return(response)
 
         elif request.action == "OPEN":
@@ -72,7 +72,7 @@ class serviceServer(Node):
             response.success = True
             response.value = GripperPos_STR
             response.average = AVERAGE
-            response.message = "OPEN command successfully sent to RobotiQ gripper. After execution, the gripper is -> " + str(AVERAGE) + "% CLOSED."
+            response.message = "OPEN command successfully sent to Robotiq gripper. After execution, the gripper is -> " + str(AVERAGE) + "% CLOSED."
             return(response)
 
         else:
@@ -85,7 +85,7 @@ def main(args=None):
     # Initialise NODE:
     rclpy.init(args=args)
     GripperNode = serviceServer()
-    print ("[ROS2 RobotiQ Gripper]: ros2_RobotiQGripper_ServiceServer generated.")
+    print ("[ROS2 Robotiq Gripper]: ros2_RobotiqGripper_ServiceServer generated.")
 
     # Spin SERVICE:
     rclpy.spin(GripperNode)

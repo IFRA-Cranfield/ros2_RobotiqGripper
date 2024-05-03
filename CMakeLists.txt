@@ -44,7 +44,7 @@ install(PROGRAMS
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "srv/RobotiQGripper.srv"
+  "srv/RobotiqGripper.srv"
 )
 
 ament_package()
