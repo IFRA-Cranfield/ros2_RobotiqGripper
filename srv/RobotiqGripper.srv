@@ -1,4 +1,3 @@
-string ipaddress
 string action
 ---
 bool success

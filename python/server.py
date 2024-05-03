@@ -8,14 +8,42 @@ from rclpy.node import Node
 from ros2_robotiqgripper.srv import RobotiqGripper
 import socket, time, re
 
+# ===== INPUT PARAMETER ===== #
+PARAM_IP = "0.0.0.0"
+P_CHECK_IP = False
+
+class ipPARAM(Node):
+    
+    def __init__(self):
+
+        global PARAM_IP
+        global P_CHECK_IP
+        
+        super().__init__('ros2_robotiq_ip_param')
+        self.declare_parameter('IPAddress', "0.0.0.0")
+
+        PARAM_IP = self.get_parameter('IPAddress').get_parameter_value().string_value
+        
+        if (PARAM_IP == "0.0.0.0"):
+
+            print('IPAddress ROS2 Parameter was not defined for the ros2_robotiq Service Server.')
+            exit()
+
+        else:    
+            print('IPAddress ROS2 Parameter received: ' + PARAM_IP)
+
+        P_CHECK_IP = True
+
 # Create NODE:
 class serviceServer(Node):
 
-    def __init__(self):
+    def __init__(self, IP):
 
         # Initialise ROS 2 Service Server:
         super().__init__('ros2_RobotiqGripper_ServiceServer')
         self.SERVICE = self.create_service(RobotiqGripper, "Robotiq_Gripper", self.ExecuteService)
+
+        self.ip = IP
 
     def ExecuteService(self, request, response):
 
@@ -25,7 +53,7 @@ class serviceServer(Node):
         response.average = -1.0
         
         # TCP-IP + SOCKET settings:
-        HOST = request.ipaddress
+        HOST = self.ip
         PORT = 63352
         
         # SOCKET COMMUNICATION:
@@ -81,10 +109,20 @@ class serviceServer(Node):
 
 # =================== MAIN =================== #
 def main(args=None):
+
+    rclpy.init(args=args)
+
+    # Get IP Address:PROGRAM
+    global PARAM_IP
+    global P_CHECK_IP
+
+    paramNODE = ipPARAM()
+    while (P_CHECK_IP == False):
+        rclpy.spin_once(paramNODE)
+    paramNODE.destroy_node()
     
     # Initialise NODE:
-    rclpy.init(args=args)
-    GripperNode = serviceServer()
+    GripperNode = serviceServer(PARAM_IP)
     print ("[ROS2 Robotiq Gripper]: ros2_RobotiqGripper_ServiceServer generated.")
 
     # Spin SERVICE:
