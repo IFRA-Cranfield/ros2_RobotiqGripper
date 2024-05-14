@@ -20,11 +20,11 @@ class ipPARAM(Node):
         global P_CHECK_IP
         
         super().__init__('ros2_robotiq_ip_param')
-        self.declare_parameter('IPAddress', "0.0.0.0")
+        self.declare_parameter('IPAddress', "None")
 
         PARAM_IP = self.get_parameter('IPAddress').get_parameter_value().string_value
         
-        if (PARAM_IP == "0.0.0.0"):
+        if (PARAM_IP == "None"):
 
             print('IPAddress ROS2 Parameter was not defined for the ros2_robotiq Service Server.')
             exit()
@@ -67,6 +67,9 @@ class serviceServer(Node):
                 break
             except TimeoutError:
                 response.message = "ERROR: TCP-IP socket connection timed out! Please verify IP address and PORT."
+                return(response)
+            except ConnectionRefusedError:
+                response.message = "ERROR: TCP-IP socket connection was refused! Please verify IP address and PORT."
                 return(response)
 
         if request.action == "CLOSE":
