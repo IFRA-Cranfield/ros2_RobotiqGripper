@@ -1,4 +1,5 @@
 <!--
+
 # ===================================== COPYRIGHT ===================================== #
 #                                                                                       #
 #  IFRA (Intelligent Flexible Robotics and Assembly) Group, CRANFIELD UNIVERSITY        #
@@ -26,7 +27,8 @@
 
 # ======= CITE OUR WORK ======= #
 # You can cite our work with the following statement:
-# IFRA-Cranfield (2024) ROS 2 Robotiq Gripper Driver. URL: https://github.com/IFRA-Cranfield/IFRA_LinkAttacher.
+# IFRA-Cranfield (2024) ROS 2 Robotiq Gripper Driver. URL: https://github.com/IFRA-Cranfield/ros2_RobotiqGripper.
+
 -->
 
 <div id="top"></div>
