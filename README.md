@@ -70,20 +70,20 @@ Centre for Robotics and Assembly:
 - Facebook: https://www.facebook.com/cranfieldrobotics/
 - YouTube: https://www.youtube.com/@CranfieldRobotics
 - LinkedIn: https://www.linkedin.com/company/cranfieldrobotics/
-- Website: https://www.cranfield.ac.uk/centres/centre-for-robotics-and-assembly 
+- Website: https://www.cranfield.ac.uk/centres/centre-for-robotics-and-assembly
 
 
 ### ros2_RobotiqGripper Repository
 
-This ROS 2 package provides a convenient interface for controlling the Robotiq Gripper when connected to a Universal Robots (UR) robot arm. The driver utilizes the UR Robot's TCP-IP socket connectivity to establish communication with the gripper.
+This ROS 2 package provides a convenient interface for controlling the Robotiq gripper when connected to a Universal Robots (UR) robot arm. The driver utilizes the UR robot's TCP-IP socket connectivity to establish communication with the gripper.
 
 __Features__
 
-- ROS 2 Service Interface: The driver encapsulates the gripper's open and close commands into ROS 2 services, allowing users to easily request gripper actions from within their ROS 2 environment. Additionally, information about the gripper's opening ratio is provided after each execution, enhancing control and monitoring capabilities.
+- ROS 2 service interface: The driver encapsulates the gripper's open and close commands into ROS 2 services, allowing users to easily request gripper actions from within their ROS 2 environment. Additionally, information about the gripper's opening ratio is provided after each execution, enhancing control and monitoring capabilities.
 
 - Tested Compatibility: The driver has been extensively tested with the Robotiq HandE gripper, ensuring reliable operation in real-world scenarios. Future plans include expanding support to encompass a broader range of Robotiq grippers, enhancing versatility and compatibility across different robotic applications.
 
-__VIDEO: Pick and Place Task - UR3 Robot w/ Robotiq HandE Parallel Gripper__
+__VIDEO: Pick and Place Task - UR3 robot w/ Robotiq HandE Parallel Gripper__
 
 Video Demonstration coming soon.
 
@@ -91,7 +91,7 @@ Video Demonstration coming soon.
 
 ## INSTALLATION
 
-The RobotiqGripper ROS 2 Package has been developed, executed and tested in a Ubuntu 22.04 machine with ROS 2 Humble. It can be easily downloaded and installed by executing the following commands:
+The ros2_RobotiqGripper ROS 2 package has been developed, executed and tested in a Ubuntu 22.04 machine with ROS 2 Humble. It can be easily downloaded and installed by executing the following commands:
 
 ```sh
 cd ~/dev_ws/src
@@ -104,23 +104,23 @@ colcon build
 
 ## USAGE
 
-Our driver offers the Robotiq Gripper OPEN/CLOSE feature through a unique ROS2 Service, which can be executed by executing the following commands:
+Our driver offers the Robotiq gripper open/close feature through a unique ROS 2 service, which can be used by executing the following commands:
 
 ```sh
-# Execute the ROS 2 SERVICE SERVER:
+# Execute the ROS 2 service server:
 ros2 run ros2_robotiqgripper server.py --ros-args -p IPAddress:="0.0.0.0"
 
-# Execute the SERVICE (client):
+# Execute the service client:
 ros2 service call /Robotiq_Gripper ros2_robotiqgripper/srv/RobotiqGripper "{action: 'OPEN'}"
 ros2 service call /Robotiq_Gripper ros2_robotiqgripper/srv/RobotiqGripper "{action: 'CLOSE'}"
 ```
 
-__INTEGRATION with the UR3 Robot__
+__INTEGRATION with the UR3 robot__
 
-Please do have a look at the [UR3-ROS 2 Cranfield Robotics Repository](https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics) and [ros2_SimRealRobotControl](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl) for a more detailed documentation of how the Robotiq ROS 2 Driver has been implemented to operate the Robotiq HandE gripper on a real UR3 Robot, using ROS 2.
+Please do have a look at the [UR3 ROS 2 Cranfield Robotics Repository](https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics) and [ros2_SimRealRobotControl](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl) for a more detailed documentation of how the Robotiq ROS 2 driver has been implemented to operate the Robotiq HandE gripper on a real UR3 robot, using ROS 2.
 
-- The gripper's SERVICE SERVER Node is launched within the Robot Bringup launch file, [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/ros2srrc_launch/bringup/bringup_ur.launch.py).
-- The gripper's SERVICE CLIENT Node is defined as a Python class [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/ros2srrc_execution/python/endeffector/robotiq_ur.py), which is instantiated to operate the gripper inside a Python script [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble/ros2srrc_execution/python/ExecuteProgram.py).
+- The gripper's service server node is launched within the robot bringup launch file, [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble-gzfortress/ros2srrc_launch/bringup/bringup_ur.launch.py).
+- The gripper's service client node is defined as a Python class [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble-gzfortress/ros2srrc_execution/python/endeffector/robotiq_ur.py), which is instantiated to operate the gripper inside a Python script [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble-gzfortress/ros2srrc_execution/python/ExecuteProgram.py).
 
 <br />
 
@@ -131,7 +131,7 @@ Please do have a look at the [UR3-ROS 2 Cranfield Robotics Repository](https://g
   <br />
   Created on behalf of the IFRA Group at Cranfield University, United Kingdom
   <br />
-  E-mail: IFRA@cranfield.ac.uk 
+  E-mail: IFRA@cranfield.ac.uk
   <br />
   <br />
   Licensed under the Apache-2.0 License.
@@ -158,7 +158,7 @@ Please do have a look at the [UR3-ROS 2 Cranfield Robotics Repository](https://g
 <p>
   You can cite our work with the following statement:
   <br />
-  IFRA-Cranfield (2024) ROS 2 Robotiq Gripper Driver. URL: https://github.com/IFRA-Cranfield/IFRA_LinkAttacher.
+  IFRA-Cranfield (2024) ROS 2 Robotiq Gripper Driver. URL: https://github.com/IFRA-Cranfield/ros2_RobotiqGripper.
 </p>
 
 <br />
@@ -199,6 +199,6 @@ Please do have a look at the [UR3-ROS 2 Cranfield Robotics Repository](https://g
   <br />
   LinkedIn: https://www.linkedin.com/in/phil-webb-64283223/
   <br />
-  Profile: https://www.cranfield.ac.uk/people/professor-phil-webb-746415 
+  Profile: https://www.cranfield.ac.uk/people/professor-phil-webb-746415
   <br />
 </p>
