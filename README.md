@@ -91,11 +91,11 @@ Video Demonstration coming soon.
 
 ## INSTALLATION
 
-The ros2_RobotiqGripper ROS 2 package has been developed, executed and tested in a Ubuntu 22.04 machine with ROS 2 Humble. It can be easily downloaded and installed by executing the following commands:
+The RobotiqGripper ROS 2 Package has been developed, executed and tested in a Ubuntu 24.04 machine with ROS 2 Jazzy. It can be easily downloaded and installed by executing the following commands:
 
 ```sh
 cd ~/dev_ws/src
-git clone https://github.com/IFRA-Cranfield/ros2_RobotiqGripper.git
+git clone https://github.com/IFRA-Cranfield/ros2_RobotiqGripper.git -b jazzy
 cd ~/dev_ws
 colcon build
 ```
@@ -104,23 +104,23 @@ colcon build
 
 ## USAGE
 
-Our driver offers the Robotiq gripper open/close feature through a unique ROS 2 service, which can be used by executing the following commands:
+Our driver offers the Robotiq Gripper OPEN/CLOSE feature through a unique ROS2 Service, which can be executed by executing the following commands:
 
 ```sh
-# Execute the ROS 2 service server:
+# Execute the ROS 2 SERVICE SERVER:
 ros2 run ros2_robotiqgripper server.py --ros-args -p IPAddress:="0.0.0.0"
 
-# Execute the service client:
+# Execute the SERVICE (client):
 ros2 service call /Robotiq_Gripper ros2_robotiqgripper/srv/RobotiqGripper "{action: 'OPEN'}"
 ros2 service call /Robotiq_Gripper ros2_robotiqgripper/srv/RobotiqGripper "{action: 'CLOSE'}"
 ```
 
-__INTEGRATION with the UR3 robot__
+__INTEGRATION with the UR3 Robot__
 
-Please do have a look at the [UR3 ROS 2 Cranfield Robotics Repository](https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics) and [ros2_SimRealRobotControl](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl) for a more detailed documentation of how the Robotiq ROS 2 driver has been implemented to operate the Robotiq HandE gripper on a real UR3 robot, using ROS 2.
+Please do have a look at the [UR3-ROS 2 Cranfield Robotics Repository](https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics) and [ros2_SimRealRobotControl](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl) for a more detailed documentation of how the Robotiq ROS 2 Driver has been implemented to operate the Robotiq HandE gripper on a real UR3 Robot, using ROS 2.
 
-- The gripper's service server node is launched within the robot bringup launch file, [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble-gzfortress/ros2srrc_launch/bringup/bringup_ur.launch.py).
-- The gripper's service client node is defined as a Python class [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble-gzfortress/ros2srrc_execution/python/endeffector/robotiq_ur.py), which is instantiated to operate the gripper inside a Python script [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/humble-gzfortress/ros2srrc_execution/python/ExecuteProgram.py).
+- The gripper's SERVICE SERVER Node is launched within the Robot Bringup launch file, [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/ros2srrc_launch/bringup/bringup_ur.launch.py).
+- The gripper's SERVICE CLIENT Node is defined as a Python class [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/ros2srrc_execution/python/endeffector/robotiq_ur.py), which is instantiated to operate the gripper inside a Python script [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/ros2srrc_execution/python/ExecuteProgram.py).
 
 <br />
 
@@ -131,7 +131,7 @@ Please do have a look at the [UR3 ROS 2 Cranfield Robotics Repository](https://g
   <br />
   Created on behalf of the IFRA Group at Cranfield University, United Kingdom
   <br />
-  E-mail: IFRA@cranfield.ac.uk
+  E-mail: IFRA@cranfield.ac.uk 
   <br />
   <br />
   Licensed under the Apache-2.0 License.
@@ -199,6 +199,6 @@ Please do have a look at the [UR3 ROS 2 Cranfield Robotics Repository](https://g
   <br />
   LinkedIn: https://www.linkedin.com/in/phil-webb-64283223/
   <br />
-  Profile: https://www.cranfield.ac.uk/people/professor-phil-webb-746415
+  Profile: https://www.cranfield.ac.uk/people/professor-phil-webb-746415 
   <br />
 </p>
