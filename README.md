@@ -117,10 +117,10 @@ ros2 service call /Robotiq_Gripper ros2_robotiqgripper/srv/RobotiqGripper "{acti
 
 __INTEGRATION with the UR3 Robot__
 
-Please do have a look at the [UR3-ROS 2 Cranfield Robotics Repository](https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics) and [ros2_SimRealRobotControl](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl) for a more detailed documentation of how the Robotiq ROS 2 Driver has been implemented to operate the Robotiq HandE gripper on a real UR3 Robot, using ROS 2.
+Please do have a look at the [UR3-ROS 2 Cranfield Robotics Repository](https://github.com/IFRA-Cranfield/ur3_CranfieldRobotics) and [ros2srrc](https://github.com/IFRA-Cranfield/ros2srrc) for a more detailed documentation of how the Robotiq ROS 2 Driver has been implemented to operate the Robotiq HandE gripper on a real UR3 Robot, using ROS 2.
 
-- The gripper's SERVICE SERVER Node is launched within the Robot Bringup launch file, [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/ros2srrc_launch/bringup/bringup_ur.launch.py).
-- The gripper's SERVICE CLIENT Node is defined as a Python class [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/ros2srrc_execution/python/endeffector/robotiq_ur.py), which is instantiated to operate the gripper inside a Python script [here](https://github.com/IFRA-Cranfield/ros2_SimRealRobotControl/blob/jazzy/ros2srrc_execution/python/ExecuteProgram.py).
+- The gripper's SERVICE SERVER Node is launched within the Robot Bringup launch file, [here](https://github.com/IFRA-Cranfield/ros2srrc/blob/jazzy/ros2srrc_launch/bringup/bringup_ur.launch.py).
+- The gripper's SERVICE CLIENT Node is defined as a Python class [here](https://github.com/IFRA-Cranfield/ros2srrc/blob/jazzy/ros2srrc_execution/python/endeffector/robotiq_ur.py), which is instantiated to operate the gripper inside a Python script [here](https://github.com/IFRA-Cranfield/ros2srrc/blob/jazzy/ros2srrc_execution/python/ExecuteProgram.py).
 
 <br />
 
